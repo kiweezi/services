@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: "deploy-{{.Values.id}}"
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  # Must always be one, is not horizontally scaling.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "phasecorex/red-discordbot:{{ .Values.type }}"
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            # Should be tiny resource usage.
+            limits:
+              cpu: 500m
+              memory: 1000Mi
+          # TODO: Health checks.
+          # probes:
+          # Bot settings.
+          env:
+            TOKEN: {{ .Values.token | quote }}
+            # Need to create a loop for multiple prefixes.
+            PREFIX: {{ .Values.prefix | quote }}
+      # TODO: Add configurable tolerations.
+      # tolerations:
+        

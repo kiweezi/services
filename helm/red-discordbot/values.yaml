@@ -1,0 +1,12 @@
+# The bot token you want Red-DiscordBot to use.
+# This is required or the application will fail.
+token: ""
+# The prefix you want Red-DiscordBot to use.
+# You can specify up to five prefixes by listing them and separating with '\s'.
+# E.g. to use '-', '~', '!' prefixes it would look like this: "-\s~\s!".
+prefix: "-"
+
+# The type of bot to deploy. See the docs below:
+# https://github.com/PhasecoreX/docker-red-discordbot#image-tags
+# https://hub.docker.com/r/phasecorex/red-discordbot/tags
+type: "latest"

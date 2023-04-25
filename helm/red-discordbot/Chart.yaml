@@ -1,0 +1,10 @@
+apiVersion: v2
+name: red-discordbot
+description: One chart to rule them all
+version: 0.1.0
+appVersion: SeeValues
+keywords:
+  - bot
+  - discord
+sources:
+  - https://github.com/kiweezi/services
