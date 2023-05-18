@@ -30,6 +30,30 @@
 			"modules": [
 				"Terminal-Icons"
 			]
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"version": "latest"
+		}
+	},
+	
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"git.path": "/usr/bin/git"
+			},
+			"extensions": [
+				"github.vscode-github-actions",
+				"eamodio.gitlens",
+				"ms-azuretools.vscode-docker",
+				"golang.go",
+				"hashicorp.terraform",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"DavidAnson.vscode-markdownlint",
+				"ms-vscode.powershell",
+				"esbenp.prettier-vscode",
+				"redhat.vscode-yaml",
+				"vscode-icons-team.vscode-icons"
+			]
 		}
 	}
 	
@@ -41,9 +65,6 @@
 
 	// Use 'postStartCommand' to run commands after the container is created like starting minikube.
 	// "postStartCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
-
-	// Configure tool-specific properties.
-	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
